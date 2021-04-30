@@ -26,6 +26,15 @@
         return result;
     }
 
+	@Bean
+    public static PropertySourcesPlaceholderConfigurer placeholderConfigurer() {
+        PropertySourcesPlaceholderConfigurer c = new PropertySourcesPlaceholderConfigurer();
+        c.setLocation(new ClassPathResource("git.properties"));
+        c.setIgnoreResourceNotFound(true);
+        c.setIgnoreUnresolvablePlaceholders(true);
+        return c;
+    }
+
 <properties>
 		 <git-commit-id-plugin.version>4.0.4</git-commit-id-plugin.version>
 	</properties>
